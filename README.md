@@ -1,2 +1,3 @@
 # github-actions-template
-GitHub Actions Template
+
+Collects GitHub Actions templates for efficiently building CI/CD pipelines and automating tasks.
