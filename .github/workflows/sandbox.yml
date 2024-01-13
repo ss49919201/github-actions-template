@@ -14,7 +14,7 @@ jobs:
         run: |
           {
             echo 'text<<EOF'
-            echo HOGE
+            echo '[1,2]' | jq .
             echo EOF
           } >> "$GITHUB_OUTPUT"
   
