@@ -10,7 +10,13 @@ jobs:
       a: ${{ steps.a.outputs.text }}
     steps:
       - id: a
-        run: echo "text=$(echo '[1,2]' | jq . -c)" >> "$GITHUB_OUTPUT"
+        # 環境変数のように改行区切りでK,Vを書き込みたいので、コンパクト出力してJSONのインデントと改行を無くす
+        run: |
+          {
+            echo 'JSON_RESPONSE<<EOF'
+            HOGE
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
   
   print-output:
     runs-on: ubuntu-latest
