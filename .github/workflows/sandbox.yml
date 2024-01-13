@@ -14,7 +14,7 @@ jobs:
         run: |
           {
             echo 'JSON_RESPONSE<<EOF'
-            HOGE
+            echo HOGE
             echo EOF
           } >> "$GITHUB_OUTPUT"
   
