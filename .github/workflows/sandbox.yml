@@ -13,7 +13,7 @@ jobs:
         # 環境変数のように改行区切りでK,Vを書き込みたいので、コンパクト出力してJSONのインデントと改行を無くす
         run: |
           {
-            echo 'JSON_RESPONSE<<EOF'
+            echo 'text<<EOF'
             echo HOGE
             echo EOF
           } >> "$GITHUB_OUTPUT"
