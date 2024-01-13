@@ -10,7 +10,7 @@ jobs:
       a: ${{ steps.a.outputs.text }}
     steps:
       - id: a
-        run: echo "text=$(echo hoge | jq . -R)" >> "$GITHUB_OUTPUT"
+        run: echo "text=$(echo '[1,2]' | jq . -R)" >> "$GITHUB_OUTPUT"
   
   print-output:
     runs-on: ubuntu-latest
