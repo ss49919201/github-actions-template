@@ -1,7 +1,7 @@
 name: sandgox
 on:
   push:
-    branches: ["push"]
+    branches: ["sandbox"]
 
 jobs:
   set-output:
@@ -10,10 +10,10 @@ jobs:
       a: ${{ steps.a.outputs.text }}
     steps:
       - id: a
-        run: echo "text=$(echo hoge | jq .)" >> "$GITHUB_OUTPUT"
+        run: echo "text=$(echo hoge | jq . -R)" >> "$GITHUB_OUTPUT"
   
   print-output:
     runs-on: ubuntu-latest
     needs: set-output
     steps:
-      - run: echo ${{needs.set-output.outputs.a}}
+      - run: echo ${{ fromJson(needs.set-output.outputs.a) }}
