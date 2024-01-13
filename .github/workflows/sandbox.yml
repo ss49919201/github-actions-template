@@ -1,6 +1,8 @@
 name: sandgox
 on:
-  push: sandbox
+  push:
+    branches: ["push"]
+
 jobs:
   set-output:
     runs-on: ubuntu-latest
