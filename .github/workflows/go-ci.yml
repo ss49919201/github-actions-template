@@ -12,6 +12,8 @@ jobs:
 
       - name: Run golangci-lint
         uses: reviewdog/action-golangci-lint@v2
+        with:
+          reporter: github-pr-check
   go-std-test:
     runs-on: ubuntu-latest
     steps:
