@@ -13,8 +13,8 @@ jobs:
       - name: Run golangci-lint
         uses: reviewdog/action-golangci-lint@v2
         with:
-          reporter: github-pr-check
-          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          # github_token: ${{ secrets.github_token }}
   go-std-test:
     runs-on: ubuntu-latest
     steps:
