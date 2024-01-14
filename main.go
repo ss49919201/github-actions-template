@@ -1,11 +1,9 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
+	"io/ioutil"
 )
 
 func main() {
-	b, _ := json.Marshal(map[string]any{"foo": "bar"})
-	fmt.Println(string(b))
+	ioutil.Discard.Write(nil)
 }
