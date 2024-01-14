@@ -9,7 +9,7 @@ permissions:
   contents: read # actions/checkout のために必要
 
 jobs:
-  get-caller-identity:
+  ls-s3-bucket:
     environment: "test"
     runs-on: ubuntu-latest
     steps:
