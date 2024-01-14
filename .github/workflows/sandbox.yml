@@ -3,26 +3,19 @@ on:
   push:
     branches: ["sandbox"]
 
+
+permissions:
+  id-token: write
+  contents: read # actions/checkout のために必要
+
 jobs:
-  set-output:
+  get-caller-identity:
+    environment: "test"
     runs-on: ubuntu-latest
-    outputs:
-      a: ${{ steps.a.outputs.text }}
     steps:
-      - id: a
-        # 環境変数のように改行区切りでK,Vを書き込みたいので、コンパクト出力してJSONのインデントと改行を無くす
-        run: |
-          {
-            echo 'text<<EOF'
-            echo '[1,2]' | jq .
-            echo EOF
-          } >> "$GITHUB_OUTPUT"
-  
-  print-output:
-    runs-on: ubuntu-latest
-    needs: set-output
-    strategy:
-      matrix:
-        a: ${{ fromJson(needs.set-output.outputs.a) }}
-    steps:
-      - run: echo ${{ matrix.a }}
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ap-northeast-1
+      - run: aws sts get-caller-identity}
