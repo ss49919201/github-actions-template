@@ -6,21 +6,21 @@ jobs:
   golangci-lint:
     runs-on: ubuntu-latest
     steps:
-      - name: check out
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: run golangci-lint
+      - name: Run golangci-lint
         uses: reviewdog/action-golangci-lint@v2
   go-std-test:
     runs-on: ubuntu-latest
     steps:
-      - name: check out
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: setup Go
+      - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version-file: 'go.mod'
 
-      - name: run test
+      - name: Run test
         run: go test -v ./...
