@@ -19,3 +19,7 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ap-northeast-1
       - run: aws s3 ls s3://ss49919201
+  show-go-version:
+    runs-on: ubuntu-latest
+    steps:
+      - run: go version
