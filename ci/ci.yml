@@ -2,6 +2,7 @@ name: CI
 on:
   pull_request:
     branches: [ main ]
+    type: [ opened, synchronize, reopened ]
 jobs:
   golangci-lint:
     runs-on: ubuntu-latest
