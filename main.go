@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 func main() {
-	_, _ = fmt.Println("ignore error")
+	b, _ := json.Marshal(map[string]any{"foo": "bar"})
+	fmt.Println(string(b))
 }
