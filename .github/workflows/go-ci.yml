@@ -5,6 +5,9 @@ on:
     types: [ opened, synchronize, reopened ]
 jobs:
   golangci-lint:
+    permissions:
+      contents: read
+      pull-requests: write 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
