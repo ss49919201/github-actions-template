@@ -1,0 +1,10 @@
+name: CI
+on:
+  push:
+    branches: [ typescript-action ]
+jobs:
+  call-ts-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call ts-action
+        uses: ./ts-action
